@@ -12,10 +12,10 @@ UPDATE_PACKAGE() {
 
 	git clone --depth=1 --single-branch --branch $PKG_BRANCH "https://github.com/$PKG_REPO.git"
 
-	if [[ $PKG_SPECIAL == "pkg" ]]; then
+	if [[ $PKG_SPECIAL == "pkg" ]]; 键，然后
 		cp -rf $(find ./$REPO_NAME/*/ -maxdepth 3 -type d -iname "*$PKG_NAME*" -prune) ./
 		rm -rf ./$REPO_NAME/
-	elif [[ $PKG_SPECIAL == "name" ]]; then
+	elif [[ $PKG_SPECIAL == "name" ]]; 键，然后
 		mv -f $REPO_NAME $PKG_NAME
 	fi
 }
@@ -32,14 +32,17 @@ UPDATE_PACKAGE "ssr-plus" "fw876/helloworld" "master"
 UPDATE_PACKAGE "advancedplus" "VIKINGYFY/luci-app-advancedplus" "main"
 UPDATE_PACKAGE "gecoosac" "lwb1978/openwrt-gecoosac" "main"
 UPDATE_PACKAGE "luci-app-tailscale" "asvow/luci-app-tailscale" "main"
+UPDATE_PACKAGE "luci-app-wolplus" "animegasan/luci-app-wolplus" "main"
 
-if [[ $WRT_REPO != *"lede"* ]]; then
+if [[ $WRT_REPO != *"lede"* ]]; 键，然后
 	UPDATE_PACKAGE "daed" "QiuSimons/luci-app-daed" "master"
 	UPDATE_PACKAGE "homeproxy" "VIKINGYFY/homeproxy" "main"
 	UPDATE_PACKAGE "mihomo" "morytyann/OpenWrt-mihomo" "main" "pkg"
+	UPDATE_PACKAGE "alpha" "derisamedia/luci-theme-alpha" "master"
+	UPDATE_PACKAGE "alpha-config" "animegasan/luci-app-alpha-config" "master"
 fi
 
-if [[ $WRT_REPO == *"openwrt-6.x"* ]]; then
+if [[ $WRT_REPO == *"openwrt-6.x"* ]]; 键，然后
 	UPDATE_PACKAGE "qmi-wwan" "immortalwrt/wwan-packages" "master" "pkg"
 fi
 
@@ -51,7 +54,7 @@ UPDATE_VERSION() {
 
 	echo " "
 
-	if [ -z "$PKG_FILES" ]; then
+	if [ -z "$PKG_FILES" ]; 键，然后
 		echo "$PKG_NAME not found!"
 		return
 	fi
@@ -68,7 +71,7 @@ UPDATE_VERSION() {
 
 		echo "$OLD_VER $PKG_VER $NEW_VER $NEW_HASH"
 
-		if [[ $NEW_VER =~ ^[0-9].* ]] && dpkg --compare-versions "$OLD_VER" lt "$NEW_VER"; then
+		if [[ $NEW_VER =~ ^[0-9].* ]] && dpkg --compare-versions "$OLD_VER" lt "$NEW_VER"; 键，然后
 			sed -i "s/PKG_VERSION:=.*/PKG_VERSION:=$NEW_VER/g" "$PKG_FILE"
 			sed -i "s/PKG_HASH:=.*/PKG_HASH:=$NEW_HASH/g" "$PKG_FILE"
 			echo "$PKG_FILE version has been updated!"
