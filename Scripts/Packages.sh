@@ -85,8 +85,8 @@ UPDATE_VERSION() {
 }
 
 #requires golang 1.22.x or latest version (Fix build for older branches of OpenWrt.)
-rm -rf feeds/packages/lang/golang
-git clone https://github.com/sbwml/packages_lang_golang -b 22.x feeds/packages/lang/golang
+rm -rf ./wrt/feeds/packages/lang/golang
+git clone https://github.com/sbwml/packages_lang_golang -b 22.x ./wrt/feeds/packages/lang/golang
 
 #UPDATE_VERSION "软件包名" "测试版，true，可选，默认为否"
 UPDATE_VERSION "sing-box" "true"
