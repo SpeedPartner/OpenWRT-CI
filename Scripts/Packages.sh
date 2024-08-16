@@ -11,8 +11,6 @@ UPDATE_PACKAGE() {
 	rm -rf $(find ../feeds/luci/ ../feeds/packages/ -maxdepth 3 -type d -iname "*$PKG_NAME*" -prune)
 
 	git clone --depth=1 --single-branch --branch $PKG_BRANCH "https://github.com/$PKG_REPO.git"
-	#Alist
-	git clone --depth=1 --single-branch "https://github.com/alist-org/alist.git"
  
 	if [[ $PKG_SPECIAL == "pkg" ]]; then
 		cp -rf $(find ./$REPO_NAME/*/ -maxdepth 3 -type d -iname "*$PKG_NAME*" -prune) ./
@@ -27,7 +25,7 @@ UPDATE_PACKAGE "argon" "jerrykuku/luci-theme-argon" "$([[ $WRT_REPO == *"lede"* 
 UPDATE_PACKAGE "argon-config" "jerrykuku/luci-app-argon-config" "$([[ $WRT_REPO == *"lede"* ]] && echo "18.06" || echo "master")"
 UPDATE_PACKAGE "design" "0x676e67/luci-theme-design" "$([[ $WRT_REPO == *"lede"* ]] && echo "main" || echo "js")"
 UPDATE_PACKAGE "kucat" "sirpdboy/luci-theme-kucat" "$([[ $WRT_REPO == *"lede"* ]] && echo "main" || echo "js")"
-UPDATE_PACKAGE "luci-app-alist" "sbwml/luci-app-alist" "$([[ $WRT_REPO == *"lede"* ]] && echo "lua" || echo "master")"
+UPDATE_PACKAGE "SpeedPartner/luci-app-alist-18.06" "$([[ $WRT_REPO == *"lede"* ]] && echo "lua" || echo "master")"
 
 UPDATE_PACKAGE "openclash" "vernesong/OpenClash" "dev" "pkg"
 UPDATE_PACKAGE "passwall" "xiaorouji/openwrt-passwall" "main"
