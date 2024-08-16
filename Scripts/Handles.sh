@@ -79,4 +79,4 @@ git clone --depth=1 --single-branch https://github.com/linkease/nas-packages.git
 git clone --depth=1 --single-branch https://github.com/linkease/nas-packages-luci.git
 
 #Alist
-git clone --depth=1 --single-branch https://github.com/alist-org/alist.git
+#git clone --depth=1 --single-branch https://github.com/alist-org/alist.git
