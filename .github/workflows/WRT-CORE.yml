@@ -93,10 +93,12 @@ jobs:
           sudo -E systemctl daemon-reload
           sudo -E timedatectl set-timezone "Asia/Shanghai"
 
-      - name: Setup Go environment
+      - name: Setup Go Environment
         uses: actions/setup-go@v5.0.2
         with:
           go-version: 'stable'
+
+      - name: Check Go Version
         run: |
           go version
 
