@@ -97,7 +97,8 @@ jobs:
         uses: actions/setup-go@v5.0.2
         with:
           go-version: 'stable'
-      - run: go version
+        run: |
+          go version
 
       - name: Initialization Values
         run: |
