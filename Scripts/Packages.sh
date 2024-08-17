@@ -20,6 +20,10 @@ UPDATE_PACKAGE() {
 	fi
 }
 
+#requires golang 1.22.x or latest version (Fix build for older branches of OpenWrt.)
+rm -rf ../feeds/packages/lang/golang
+git clone https://github.com/sbwml/packages_lang_golang -b 22.x ../feeds/packages/lang/golang
+
 #UPDATE_PACKAGE "包名" "项目地址" "项目分支" "pkg/name，可选，pkg为从大杂烩中单独提取包名插件；name为重命名为包名"
 UPDATE_PACKAGE "argon" "jerrykuku/luci-theme-argon" "$([[ $WRT_REPO == *"lede"* ]] && echo "18.06" || echo "master")"
 UPDATE_PACKAGE "argon-config" "jerrykuku/luci-app-argon-config" "$([[ $WRT_REPO == *"lede"* ]] && echo "18.06" || echo "master")"
@@ -83,10 +87,6 @@ UPDATE_VERSION() {
 		fi
 	done
 }
-
-#requires golang 1.22.x or latest version (Fix build for older branches of OpenWrt.)
-rm -rf ./wrt/feeds/packages/lang/golang
-git clone https://github.com/sbwml/packages_lang_golang -b 22.x ./wrt/feeds/packages/lang/golang
 
 #UPDATE_VERSION "软件包名" "测试版，true，可选，默认为否"
 UPDATE_VERSION "sing-box" "true"
