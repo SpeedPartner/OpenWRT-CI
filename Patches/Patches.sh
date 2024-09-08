@@ -7,6 +7,13 @@
 #	echo "$WRT_REPO patch has been installed!"
 #fi
 
+if [[ $WRT_REPO == *"lede"* ]]; then
+	rm -rf alist/luci-app-alist
+	git clone https://github.com/sbwml/luci-app-alist alist/luci-app-alist -b lua --depth=1
+ 
+	echo "$WRT_REPO patch (luci-app-alist) has been installed!"
+fi
+
 if [[ $WRT_REPO == *"immortalwrt"* ]]; then
 cat <<EOF >> ./wrt/package/network/config/firewall/files/firewall.config
 
