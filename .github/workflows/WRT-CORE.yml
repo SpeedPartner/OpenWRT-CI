@@ -144,7 +144,7 @@ jobs:
             ./wrt/staging_dir/host*
             ./wrt/staging_dir/tool*
 
-      - name: Update Caches
+      - name: 更新 Caches
         if: env.WRT_TEST != 'true'
         run: |
           if ${{steps.check-cache.outputs.cache-hit == 'true'}}; then
@@ -194,7 +194,7 @@ jobs:
         run: |
           cd ./wrt/
 
-          make download -j$(nproc)
+          make download
 
       - name: Compile Firmware
         if: env.WRT_TEST != 'true'
