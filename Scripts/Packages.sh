@@ -29,7 +29,14 @@ UPDATE_PACKAGE "argon" "jerrykuku/luci-theme-argon" "$([[ $WRT_REPO == *"lede"* 
 UPDATE_PACKAGE "argon-config" "jerrykuku/luci-app-argon-config" "$([[ $WRT_REPO == *"lede"* ]] && echo "18.06" || echo "master")"
 UPDATE_PACKAGE "design" "kenzok78/luci-theme-design" "$([[ $WRT_REPO == *"lede"* ]] && echo "main" || echo "js")"
 UPDATE_PACKAGE "kucat" "sirpdboy/luci-theme-kucat" "$([[ $WRT_REPO == *"lede"* ]] && echo "main" || echo "js")"
+
 UPDATE_PACKAGE "alist" "sbwml/luci-app-alist" "master"
+if [[ $WRT_REPO == *"lede"* ]]; then
+	rm -rf alist/luci-app-alist
+	git clone https://github.com/sbwml/luci-app-alist alist/luci-app-alist -b lua --depth=1
+ 
+	echo "$WRT_REPO luci-app-alist has been installed!"
+fi
 
 UPDATE_PACKAGE "openclash" "vernesong/OpenClash" "dev" "pkg"
 UPDATE_PACKAGE "passwall" "xiaorouji/openwrt-passwall" "main"
