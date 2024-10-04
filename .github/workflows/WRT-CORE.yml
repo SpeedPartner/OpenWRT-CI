@@ -95,7 +95,8 @@ jobs:
           sudo -E apt -yqq install libfuse-dev
 
       - name: Setup Go Environment
-        uses: actions/setup-go@v5.0.2
+        uses: actions/checkout@v4
+        uses: actions/setup-go@v5
         with:
           go-version: 'stable'
 
