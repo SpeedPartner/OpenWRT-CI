@@ -30,7 +30,7 @@ UPDATE_PACKAGE "argon-config" "jerrykuku/luci-app-argon-config" "$([[ $WRT_REPO 
 UPDATE_PACKAGE "design" "kenzok78/luci-theme-design" "$([[ $WRT_REPO == *"lede"* ]] && echo "main" || echo "js")"
 UPDATE_PACKAGE "kucat" "sirpdboy/luci-theme-kucat" "$([[ $WRT_REPO == *"lede"* ]] && echo "main" || echo "js")"
 
-UPDATE_PACKAGE "alist" "sbwml/luci-app-alist" "master"
+UPDATE_PACKAGE "alist" "sbwml/luci-app-alist" "main"
 if [[ $WRT_REPO == *"lede"* ]]; then
 	rm -rf alist/luci-app-alist
 	git clone https://github.com/sbwml/luci-app-alist alist/luci-app-alist -b lua --depth=1
