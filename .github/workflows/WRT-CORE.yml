@@ -60,8 +60,6 @@ jobs:
         uses: actions/checkout@main
 
       - name: Free Disk Space
-        ps:
-      - name: Free Disk Space
         uses: endersonmenezes/free-disk-space@v2
         with:
           remove_android: true
