@@ -104,3 +104,4 @@ CONFIG_PACKAGE_luci-app-unblockmusic=n
 CONFIG_PACKAGE_luci-app-advancedplus=n
 #测试
 CONFIG_PACKAGE_luci-proto-qmi=y
+CONFIG_PACKAGE_luci-app-wrtbwmon=y
