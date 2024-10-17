@@ -24,6 +24,10 @@ UPDATE_PACKAGE() {
 rm -rf ../feeds/packages/lang/golang
 git clone https://github.com/sbwml/packages_lang_golang -b 23.x ../feeds/packages/lang/golang
 
+#Update rust 1.81.0 or latest version (Fix build for LEDE.)
+rm -rf ../feeds/packages/lang/rust
+git clone https://github.com/immortalwrt/packages/lang/rust ../feeds/packages/lang/rust --depth=1
+
 #UPDATE_PACKAGE "包名" "项目地址" "项目分支" "pkg/name，可选，pkg为从大杂烩中单独提取包名插件；name为重命名为包名"
 UPDATE_PACKAGE "argon" "jerrykuku/luci-theme-argon" "$([[ $WRT_REPO == *"lede"* ]] && echo "18.06" || echo "master")"
 UPDATE_PACKAGE "argon-config" "jerrykuku/luci-app-argon-config" "$([[ $WRT_REPO == *"lede"* ]] && echo "18.06" || echo "master")"
