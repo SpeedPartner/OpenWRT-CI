@@ -25,13 +25,19 @@ rm -rf ../feeds/packages/lang/golang
 git clone https://github.com/sbwml/packages_lang_golang -b 23.x ../feeds/packages/lang/golang
 
 #Update rust 1.81.0 or latest version (Fix build for LEDE.)
-rm -rf ../feeds/packages/lang/rust
-git clone --filter=blob:none --sparse https://github.com/immortalwrt/packages ../download/packages
-cd ../download/packages
-git sparse-checkout set lang/rust
-cd ../..
-cp -r download/packages/lang/rust feeds/packages/lang/rust
-cd package
+#rm -rf ../feeds/packages/lang/rust
+#git clone --filter=blob:none --sparse https://github.com/immortalwrt/packages ../download/packages
+#cd ../download/packages
+#git sparse-checkout set lang/rust
+#cd ../..
+#cp -r download/packages/lang/rust feeds/packages/lang/rust
+#cd package
+
+[source.crates-io]
+replace-with = 'mirror'
+
+[source.mirror]
+registry = "sparse+https://mirrors.bfsu.edu.cn/crates.io-index/"
 
 #UPDATE_PACKAGE "包名" "项目地址" "项目分支" "pkg/name，可选，pkg为从大杂烩中单独提取包名插件；name为重命名为包名"
 UPDATE_PACKAGE "argon" "jerrykuku/luci-theme-argon" "$([[ $WRT_REPO == *"lede"* ]] && echo "18.06" || echo "master")"
