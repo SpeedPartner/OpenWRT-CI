@@ -50,6 +50,8 @@ env:
   WRT_BRANCH: ${{inputs.WRT_BRANCH}}
   WRT_PACKAGE: ${{inputs.WRT_PACKAGE}}
   WRT_TEST: ${{inputs.WRT_TEST}}
+  source.crates-io: replace-with = 'mirror'
+  source.mirror: registry = "sparse+https://mirrors.bfsu.edu.cn/crates.io-index/"
 
 jobs:
   wrt_core:
