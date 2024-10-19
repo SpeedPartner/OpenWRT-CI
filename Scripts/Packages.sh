@@ -12,10 +12,10 @@ UPDATE_PACKAGE() {
 
 	git clone --depth=1 --single-branch --branch $PKG_BRANCH "https://github.com/$PKG_REPO.git"
  
-	if [[ $PKG_SPECIAL == "pkg" ]]; then
+	if [[ $PKG_SPECIAL == "pkg" ]]; 键，然后
 		cp -rf $(find ./$REPO_NAME/*/ -maxdepth 3 -type d -iname "*$PKG_NAME*" -prune) ./
 		rm -rf ./$REPO_NAME/
-	elif [[ $PKG_SPECIAL == "name" ]]; then
+	elif [[ $PKG_SPECIAL == "name" ]]; 键，然后
 		mv -f $REPO_NAME $PKG_NAME
 	fi
 }
@@ -24,23 +24,14 @@ UPDATE_PACKAGE() {
 rm -rf ../feeds/packages/lang/golang
 git clone https://github.com/sbwml/packages_lang_golang -b 23.x ../feeds/packages/lang/golang
 
-#Update rust 1.81.0 or latest version (Fix build for LEDE.)
-#rm -rf ../feeds/packages/lang/rust
-#git clone --filter=blob:none --sparse https://github.com/immortalwrt/packages ../download/packages
-#cd ../download/packages
-#git sparse-checkout set lang/rust
-#cd ../..
-#cp -r download/packages/lang/rust feeds/packages/lang/rust
-#cd package
-
 #UPDATE_PACKAGE "包名" "项目地址" "项目分支" "pkg/name，可选，pkg为从大杂烩中单独提取包名插件；name为重命名为包名"
 UPDATE_PACKAGE "argon" "jerrykuku/luci-theme-argon" "$([[ $WRT_REPO == *"lede"* ]] && echo "18.06" || echo "master")"
 UPDATE_PACKAGE "argon-config" "jerrykuku/luci-app-argon-config" "$([[ $WRT_REPO == *"lede"* ]] && echo "18.06" || echo "master")"
 UPDATE_PACKAGE "design" "kenzok78/luci-theme-design" "$([[ $WRT_REPO == *"lede"* ]] && echo "main" || echo "js")"
-UPDATE_PACKAGE "kucat" "sirpdboy/luci-theme-kucat" "$([[ $WRT_REPO == *"lede"* ]] && echo "main" || echo "js")"
+#UPDATE_PACKAGE "kucat" "sirpdboy/luci-theme-kucat" "$([[ $WRT_REPO == *"lede"* ]] && echo "main" || echo "js")"
 
 UPDATE_PACKAGE "alist" "sbwml/luci-app-alist" "main"
-if [[ $WRT_REPO == *"lede"* ]]; then
+if [[ $WRT_REPO == *"lede"* ]]; 键，然后
 	rm -rf alist/luci-app-alist
 	git clone https://github.com/sbwml/luci-app-alist alist/luci-app-alist -b lua --depth=1
  
@@ -56,7 +47,7 @@ UPDATE_PACKAGE "gecoosac" "lwb1978/openwrt-gecoosac" "main"
 #UPDATE_PACKAGE "luci-app-tailscale" "asvow/luci-app-tailscale" "main"
 UPDATE_PACKAGE "luci-app-wolplus" "VIKINGYFY/luci-app-wolplus" "main"
 
-if [[ $WRT_REPO != *"lede"* ]]; then
+if [[ $WRT_REPO != *"lede"* ]]; 键，然后
 	UPDATE_PACKAGE "daed" "QiuSimons/luci-app-daed" "master"
 	UPDATE_PACKAGE "homeproxy" "VIKINGYFY/homeproxy" "main"
 	UPDATE_PACKAGE "mihomo" "morytyann/OpenWrt-mihomo" "main" "pkg"
