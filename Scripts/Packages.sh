@@ -12,10 +12,10 @@ UPDATE_PACKAGE() {
 
 	git clone --depth=1 --single-branch --branch $PKG_BRANCH "https://github.com/$PKG_REPO.git"
  
-	if [[ $PKG_SPECIAL == "pkg" ]]; 键，然后
+	if [[ $PKG_SPECIAL == "pkg" ]]; then
 		cp -rf $(find ./$REPO_NAME/*/ -maxdepth 3 -type d -iname "*$PKG_NAME*" -prune) ./
 		rm -rf ./$REPO_NAME/
-	elif [[ $PKG_SPECIAL == "name" ]]; 键，然后
+	elif [[ $PKG_SPECIAL == "name" ]]; then
 		mv -f $REPO_NAME $PKG_NAME
 	fi
 }
@@ -31,7 +31,7 @@ UPDATE_PACKAGE "design" "kenzok78/luci-theme-design" "$([[ $WRT_REPO == *"lede"*
 #UPDATE_PACKAGE "kucat" "sirpdboy/luci-theme-kucat" "$([[ $WRT_REPO == *"lede"* ]] && echo "main" || echo "js")"
 
 UPDATE_PACKAGE "alist" "sbwml/luci-app-alist" "main"
-if [[ $WRT_REPO == *"lede"* ]]; 键，然后
+if [[ $WRT_REPO == *"lede"* ]]; then
 	rm -rf alist/luci-app-alist
 	git clone https://github.com/sbwml/luci-app-alist alist/luci-app-alist -b lua --depth=1
  
@@ -47,7 +47,7 @@ UPDATE_PACKAGE "gecoosac" "lwb1978/openwrt-gecoosac" "main"
 #UPDATE_PACKAGE "luci-app-tailscale" "asvow/luci-app-tailscale" "main"
 UPDATE_PACKAGE "luci-app-wolplus" "VIKINGYFY/luci-app-wolplus" "main"
 
-if [[ $WRT_REPO != *"lede"* ]]; 键，然后
+if [[ $WRT_REPO != *"lede"* ]]; then
 	UPDATE_PACKAGE "daed" "QiuSimons/luci-app-daed" "master"
 	UPDATE_PACKAGE "homeproxy" "VIKINGYFY/homeproxy" "main"
 	UPDATE_PACKAGE "mihomo" "morytyann/OpenWrt-mihomo" "main" "pkg"
