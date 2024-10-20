@@ -15,7 +15,15 @@ sed -i "s/timezone='.*'/timezone='CST-8'/g" $CFG_FILE
 sed -i "/timezone='.*'/a\\\t\t\set system.@system[-1].zonename='Asia/Shanghai'" $CFG_FILE
 
 if [[ $WRT_REPO == *"lede"* ]]; then
+        CFG_FILE_LEDE=".package/base-files/luci2/bin/config_generate"
 	LEDE_FILE=$(find ./package/lean/autocore/ -type f -name "index.htm")
+	#修改默认IP地址
+        sed -i "s/192\.168\.[0-9]*\.[0-9]*/$WRT_IP/g" $CFG_FILE_LEDE
+        #修改默认主机名
+        sed -i "s/hostname='.*'/hostname='$WRT_NAME'/g" $CFG_FILE_LEDE
+        #修改默认时区
+        sed -i "s/timezone='.*'/timezone='CST-8'/g" $CFG_FILE_LEDE
+        sed -i "/timezone='.*'/a\\\t\t\set system.@system[-1].zonename='Asia/Shanghai'" $CFG_FILE_LEDE
 	#修改默认时间格式
 	sed -i 's/os.date()/os.date("%Y-%m-%d %H:%M:%S %A")/g' $LEDE_FILE
 	#添加编译日期标识
