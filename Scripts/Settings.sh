@@ -63,3 +63,12 @@ else
 	echo "CONFIG_LUCI_LANG_zh_Hans=y" >> ./.config
 	echo "CONFIG_PACKAGE_luci-app-homeproxy=y" >> ./.config
 fi
+
+#将LEDE固件内置软件源更换为ipk包的旧版本
+if [[ $WRT_REPO == *"lede"* ]]; then
+	sed -i '/openwrt_core/ { s/snapshots/releases\/23.05.4/g; }'  /etc/opkg/distfeeds.conf
+	sed -i '/openwrt_base/ { s/snapshots/releases\/23.05.4/g; }'  /etc/opkg/distfeeds.conf
+	sed -i '/openwrt_packages/ { s/snapshots/releases\/23.05.4/g; }'  /etc/opkg/distfeeds.conf
+	sed -i '/openwrt_routing/ { s/snapshots/releases\/23.05.4/g; }'  /etc/opkg/distfeeds.conf
+	sed -i '/openwrt_telephony/ { s/snapshots/releases\/23.05.4/g; }'  /etc/opkg/distfeeds.conf
+fi
