@@ -30,13 +30,7 @@ UPDATE_PACKAGE "argon-config" "jerrykuku/luci-app-argon-config" "$([[ $WRT_REPO 
 UPDATE_PACKAGE "design" "kenzok78/luci-theme-design" "$([[ $WRT_REPO == *"lede"* ]] && echo "main" || echo "js")"
 #UPDATE_PACKAGE "kucat" "sirpdboy/luci-theme-kucat" "$([[ $WRT_REPO == *"lede"* ]] && echo "main" || echo "js")"
 
-UPDATE_PACKAGE "alist" "sbwml/luci-app-alist" "main"
-if [[ $WRT_REPO == *"lede"* ]]; then
-	rm -rf alist/luci-app-alist
-	git clone https://github.com/sbwml/luci-app-alist alist/luci-app-alist -b lua --depth=1
- 
-	echo "$WRT_REPO luci-app-alist has been installed!"
-fi
+UPDATE_PACKAGE "alist" "sbwml/luci-app-alist" "lua"
 
 UPDATE_PACKAGE "openclash" "vernesong/OpenClash" "dev" "pkg"
 UPDATE_PACKAGE "passwall" "xiaorouji/openwrt-passwall" "main"
@@ -45,7 +39,7 @@ UPDATE_PACKAGE "passwall" "xiaorouji/openwrt-passwall" "main"
 #UPDATE_PACKAGE "advancedplus" "VIKINGYFY/luci-app-advancedplus" "main"
 UPDATE_PACKAGE "gecoosac" "lwb1978/openwrt-gecoosac" "main"
 #UPDATE_PACKAGE "luci-app-tailscale" "asvow/luci-app-tailscale" "main"
-UPDATE_PACKAGE "luci-app-wolplus" "VIKINGYFY/packages" "main" "pkg"
+#UPDATE_PACKAGE "luci-app-wolplus" "VIKINGYFY/packages" "main" "pkg"
 
 if [[ $WRT_REPO != *"lede"* ]]; then
 	UPDATE_PACKAGE "daed" "QiuSimons/luci-app-daed" "master"
