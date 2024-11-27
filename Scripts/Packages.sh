@@ -30,7 +30,8 @@ UPDATE_PACKAGE "argon-config" "jerrykuku/luci-app-argon-config" "$([[ $WRT_REPO 
 UPDATE_PACKAGE "design" "kenzok78/luci-theme-design" "$([[ $WRT_REPO == *"lede"* ]] && echo "main" || echo "js")"
 #UPDATE_PACKAGE "kucat" "sirpdboy/luci-theme-kucat" "$([[ $WRT_REPO == *"lede"* ]] && echo "main" || echo "js")"
 
-UPDATE_PACKAGE "alist" "sbwml/luci-app-alist" "lua"
+UPDATE_PACKAGE "alist" "sbwml/luci-app-alist" "$([[ $WRT_REPO == *"lede"* ]] && echo "lua" || echo "main")"
+
 
 UPDATE_PACKAGE "openclash" "vernesong/OpenClash" "dev" "pkg"
 UPDATE_PACKAGE "passwall" "xiaorouji/openwrt-passwall" "main"
@@ -91,8 +92,8 @@ UPDATE_VERSION() {
 
 if [[ $WRT_REPO == *"lede"* ]]; then
 	rm -rf ../feeds/luci/luci-app-unblockmusic
-	UPDATE_PACKAGE "unblockneteasemusic" "UnblockNeteaseMusic/luci-app-unblockneteasemusic" "js"
 fi
+UPDATE_PACKAGE "unblockneteasemusic" "UnblockNeteaseMusic/luci-app-unblockneteasemusic" "$([[ $WRT_REPO == *"lede"* ]] && echo "main" || echo "js")"
 
 #UPDATE_VERSION "软件包名" "测试版，true，可选，默认为否"
 UPDATE_VERSION "sing-box"
