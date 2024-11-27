@@ -93,7 +93,7 @@ UPDATE_VERSION() {
 if [[ $WRT_REPO == *"lede"* ]]; then
 	rm -rf ../feeds/luci/luci-app-unblockmusic
 fi
-UPDATE_PACKAGE "unblockneteasemusic" "UnblockNeteaseMusic/luci-app-unblockneteasemusic" "$([[ $WRT_REPO == *"lede"* ]] && echo "main" || echo "js")"
+UPDATE_PACKAGE "unblockneteasemusic" "UnblockNeteaseMusic/luci-app-unblockneteasemusic" "$([[ $WRT_REPO == *"lede"* ]] && echo "master" || echo "js")"
 
 #UPDATE_VERSION "软件包名" "测试版，true，可选，默认为否"
 UPDATE_VERSION "sing-box"
