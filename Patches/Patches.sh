@@ -2,7 +2,7 @@
 
 if [[ $WRT_REPO == *"lede"* ]]; then
         sed -i '/^#src-git luci https:\/\/github.com\/coolsnowwolf\/luci$/s/^#//' ./wrt/feeds.conf.default
-        sed -i '/^src-git luci https:\/\/github.com\/coolsnowwolf\/luci\.git;openwrt-23\.05$/s/^/#/' ./wrt/feeds.conf.default
+        sed -i '/^src-git luci https:\/\/github.com\/coolsnowwolf\/luci\.git;openwrt-25\.12$/s/^/#/' ./wrt/feeds.conf.default
 
 	echo "$WRT_REPO LuCI version has been downgraded to 18.06!"
 fi
