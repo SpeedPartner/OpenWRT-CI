@@ -84,9 +84,3 @@ if [ -f "$TS_FILE" ]; then
 	sed -i '/\/files/d' $TS_FILE
 	cd $PKG_PATCH && echo "tailscale has been fixed!"
 fi
-
-#修复LEDE内核6.12编译ksmbd报错
-if [[ $WRT_REPO == *"lede"* ]]; then
-	rm -rf ..package/kernel/ksmbd
-	git clone https://github.com/cifsd-team/ksmbd.git ..package/kernel/ksmbd
-fi
