@@ -78,6 +78,15 @@ git clone --depth=1 --single-branch https://github.com/linkease/istore.git
 git clone --depth=1 --single-branch https://github.com/linkease/nas-packages.git
 git clone --depth=1 --single-branch https://github.com/linkease/nas-packages-luci.git
 
+# 从X86的默认安装包中移除autosamba 
+X86_FILE=$(find ./ -maxdepth 5 -type f -wholename "*/target/linux/x86/Makefile")
+if [ -n "$X86_FILE" ]; then
+    sed -i 's/autosamba//g' "$X86_FILE"
+    echo "[Handles.sh] autosamba removed from $X86_FILE"
+else
+    echo "[Handles.sh] WARNING: x86 Makefile not found, autosamba not removed"
+fi
+
 #修复TailScale配置文件冲突
 TS_FILE=$(find ../feeds/packages/ -maxdepth 3 -type f -wholename "*/tailscale/Makefile")
 if [ -f "$TS_FILE" ]; then
